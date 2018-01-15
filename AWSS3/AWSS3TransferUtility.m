@@ -23,7 +23,7 @@ NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification = @"c
 
 // Private constnats
 static NSString *const AWSS3TransferUtilityIdentifier = @"com.amazonaws.AWSS3TransferUtility.Identifier";
-static NSTimeInterval const AWSS3TransferUtilityTimeoutIntervalForResource = 50 * 60; // 50 minutes
+static NSTimeInterval const AWSS3TransferUtilityTimeoutIntervalForResource = 60 * 60 * 72; // 72 hours
 static NSString *const AWSS3TransferUtilityUserAgent = @"transfer-utility";
 static NSString *const AWSInfoS3TransferUtility = @"S3TransferUtility";
 
