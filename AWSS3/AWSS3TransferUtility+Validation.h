@@ -13,13 +13,9 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
+#import <AWSS3/AWSS3.h>
 
-//! Project version number for AWSRekognition.
-FOUNDATION_EXPORT double AWSRekognitionVersionNumber;
+@interface AWSS3TransferUtility (Validation)
+- (AWSTask *) validateParameters: (NSString * )bucket fileURL:(NSURL *)fileURL accelerationModeEnabled: (BOOL) accelerationModeEnabled;
 
-//! Project version string for AWSRekognition.
-FOUNDATION_EXPORT const unsigned char AWSRekognitionVersionString[];
-
-#import <AWSCore/AWSCore.h>
-#import "AWSRekognitionService.h"
+@end
