@@ -476,12 +476,15 @@ static NSTimeInterval _clockskew = 0.0;
 }
 
 - (BOOL)aws_isVirtualHostedStyleCompliant {
+    // BP HACK
+    // -------
 //    if (![self aws_isDNSBucketName]) {
 //        return NO;
 //    } else {
 //        return ![self aws_contains:@"."];
 //    }
-    return false; // BP HACK
+    return false;
+    // -------
 }
 
 - (AWSRegionType)aws_regionTypeValue {
