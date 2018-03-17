@@ -24,6 +24,10 @@
  */
 typedef NS_ENUM(NSInteger, AWSRegionType) {
     /**
+     *  Custom DC3 Region
+     */
+    AWSRegionDC3 NS_SWIFT_NAME(DC3),
+    /**
      *  Unknown Region
      */
     AWSRegionUnknown NS_SWIFT_NAME(Unknown),

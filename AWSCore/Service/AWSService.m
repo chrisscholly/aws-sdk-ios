@@ -217,6 +217,7 @@ static NSMutableArray *_globalUserAgentPrefixes = nil;
 
 #pragma mark - AWSEndpoint
 
+static NSString *const AWSRegionNameDC3 = @"DC3";
 static NSString *const AWSRegionNameUSEast1 = @"us-east-1";
 static NSString *const AWSRegionNameUSEast2 = @"us-east-2";
 static NSString *const AWSRegionNameUSWest2 = @"us-west-2";
@@ -367,6 +368,8 @@ static NSString *const AWSServiceNameSTS = @"sts";
 
 - (NSString *)regionNameFromType:(AWSRegionType)regionType {
     switch (regionType) {
+        case AWSRegionDC3:
+            return AWSRegionNameDC3;
         case AWSRegionUSEast1:
             return AWSRegionNameUSEast1;
         case AWSRegionUSEast2:
@@ -480,7 +483,8 @@ static NSString *const AWSServiceNameSTS = @"sts";
 
     NSString *separator = @".";
     if (serviceType == AWSServiceS3
-        && (regionType == AWSRegionUSEast1
+        && (regionType == AWSRegionDC3
+            || regionType == AWSRegionUSEast1
             || regionType == AWSRegionUSWest1
             || regionType == AWSRegionUSWest2
             || regionType == AWSRegionEUWest1
