@@ -490,9 +490,13 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
         // ============  generate v4 signature string (END) ===================
         
         [queryString appendFormat:@"%@=%@", @"X-Amz-Signature", signatureString];
-        
-        NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@?%@", endpoint.URL.scheme, endpoint.hostName, keyPath, queryString];
-        
+
+        // BP HACK
+        // -------
+//        NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@?%@", endpoint.URL.scheme, endpoint.hostName, keyPath, queryString];
+        NSString *urlString = [NSString stringWithFormat:@"%@://%@:%@/%@?%@", endpoint.URL.scheme, endpoint.hostName, endpoint.URL.port, keyPath, queryString];
+        // -------
+
         return [NSURL URLWithString:urlString];
     }];
 }

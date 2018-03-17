@@ -266,7 +266,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             if (isAccelerateModeEnabled) {
                 host = [NSString stringWithFormat:@"%@.%@", bucketName, AWSS3PreSignedURLBuilderAcceleratedEndpoint];
             } else {
-                host = [NSString stringWithFormat:@"%@.%@", bucketName, endpoint.hostName];
+                // BP HACK
+                // -------
+//                host = [NSString stringWithFormat:@"%@.%@", bucketName, endpoint.hostName];
+                host = [NSString stringWithFormat:@"%@:%@", endpoint.hostName, endpoint.URL.port];
+                // -------
             }
         } else {
             host = endpoint.hostName;
